@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> CENS N° 475 | Novedades y Anuncios </title>
+<meta name="description" content="Enterate de las últimas novedades, anuncios, fechas de exámenes y eventos del CENS N° 475 Islas Malvinas.">
+<meta name="keywords" content="CENS 475, novedades, anuncios, fechas examenes, Isidro Casanova, La Matanza">
+<meta name="author" content="CENS N° 475">
+
+<meta name="google-signin-client_id" content="39983644721-i1ddinf55i68cskjhvq5311q0hvjk2sl.apps.googleusercontent.com">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Novedades y Anuncios - CENS N° 475">
+<meta property="og:description" content="Seguí el día a día de nuestra institution. Comunicados oficiales, talleres y calendario escolar.">
+<meta property="og:url" content="https://cens475.edu.ar/Novedades.html">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="CENS N° 475">
+
+<link rel="icon" href="img/escudo.webp" type="image/png">
+<link rel="shortcut icon" href="img/escudo.png" type="image/png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class'
+  }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --bg-section: #F8FAFB;
+  --card-bg: #FFFFFF;
+  --primary-dark: #32535F;
+  --primary: #4A7A8C;
+  --accent-teal: #78B2B4;
+  --accent-light: #A8D5D7;
+  --bg-light: #F8FAFB;
+  --text-dark: #1E293B;
+  --text-light: #64748B;
+  --white: #FFFFFF;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* MODO OSCURO - Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-main: #F1F5F9;    
+    --text-muted: #94A3B8;   
+    --bg-section: #0F172A;
+    --card-bg: #1E293B;
+    --primary-dark: #1F333B;
+    --primary: #32535F;
+    --accent-teal: #5A9A9C;
+    --accent-light: #78B2B4;
+    --bg-light: #0F172A;
+    --text-dark: #F1F5F9;
+    --text-light: #94A3B8;
+    --white: #1E293B;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  }
+}
+
+/* MODO OSCURO MANUAL con class="dark" */
+html.dark {
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --bg-section: #0F172A;
+  --card-bg: #1E293B;
+  --primary-dark: #1F333B;
+  --primary: #32535F;
+  --accent-teal: #5A9A9C;
+  --accent-light: #78B2B4;
+  --bg-light: #0F172A;
+  --text-dark: #F1F5F9;
+  --text-light: #94A3B8;
+  --white: #1E293B;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background: rgba(30, 41, 59, 0.9);
+  }
+}
+
+html.dark header {
+  background: rgba(30, 41, 59, 0.9) !important;
+}
+
+html.light header {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+ul.absolute {
+  background: var(--card-bg);
+  border-color: rgba(120, 178, 180, 0.2);
+}
+
+ul.absolute li a img {
+  filter: none;
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+ul.absolute li a span {
+  color: var(--text-main);
+}
+
+@media (prefers-color-scheme: dark) {
+  ul.absolute li a img {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+  ul.absolute li a {
+    color: #F1F5F9 !important;
+  }
+  ul.absolute li a:hover {
+    background: rgba(120, 178, 180, 0.2);
+    color: var(--accent-light);
+  }
+}
+
+html.dark ul.absolute li a img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+}
+html.dark ul.absolute li a {
+  color: #F1F5F9 !important;
+}
+
+html.light ul.absolute li a img {
+  filter: none !important;
+  opacity: 0.7 !important;
+}
+html.light ul.absolute li a {
+  color: #1E293B !important;
+}
+
+#theme-toggle {
+  background: var(--accent-teal) !important;
+  transition: all 0.3s ease;
+}
+
+html.dark #theme-toggle-thumb {
+  transform: translateX(30px);
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-dark);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  font-weight: 700;
+  scroll-margin-top: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+html.dark header img.escudo-logo {
+  filter: none !important;
+}
+.nav-link {
+  position: relative;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-teal);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--accent-teal);
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.open {
+  transform: translateX(0);
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text-dark);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-teal) 100%);
+  color: white;
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  min-width: 250px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hero unificado con diseño Identidad */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-teal) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cards estilizadas de Identidad aplicadas al feed dinámico */
+.card {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(120, 178, 180, 0.2);
+}
+.card p {
+  color: var(--text-muted);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-teal);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1.25rem;
+  background: var(--accent-light);
+  color: var(--primary-dark);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+}
+
+/* === SUBMENU === */
+#mobile-inicio-submenu.open {
+  max-height: 500px;
+}
+
+html.dark #mobile-menu img,
+html.dark #mobile-menu i {
+  filter: brightness(0) invert(1);
+  color: #F1F5F9 !important;
+}
+
+html.dark header img[src*="img/"]:not(.escudo-logo),
+html.dark nav img[src*="img/"]:not(.escudo-logo),
+html.dark .group ul img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
+
+<!-- Header Unificado de Nuestra Identidad -->
+<header>
+  <nav class="container" aria-label="Navegación principal">
+    <div class="flex items-center justify-between py-4">
+      
+      <div class="flex items-center gap-10">
+        <a href="index.html#inicio" class="flex items-center gap-3 text-xl font-bold" aria-label="CENS 475 - Inicio">
+          <div class="w-16 h-16 rounded-lg flex items-center justify-center">
+            <img src="img/escudo.webp" alt="Escudo CENS 475" class="w-full h-full object-contain escudo-logo">
+          </div>
+          <div class="flex flex-col">
+             <span class="logo-text-primary text-base sm:text-xl leading-none mb-1">CENS N°475</span>
+            <span class="logo-text-secondary text-sm sm:text-lg font-medium text-[var(--text-muted)] leading-tight -mt-0.5 font-bold text-center"> Islas Malvinas</span>
+          </div>
+        </a>
+        </div>
+
+      
+      <ul class="hidden md:flex items-center gap-4 list-none">
+        <li class="relative group">
+          <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+            Menu <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <ul class="absolute left-0 top-full mt-3 w-60 bg-[var(--white)] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-[rgba(120,178,180,0.2)] translate-y-2 group-hover:translate-y-0">
+            <li>
+              <a href="index.html#inicio" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+                <img src="img/home.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Inicio</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#sobre-nosotros" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+                <img src="img/info.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Sobre Nosotros</span>
+              </a>
+            </li>
+            <li>
+              <a href="Nuestra Identidad.html" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+                <img src="img/historia.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Nuestra Identidad</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#equipo-directivo" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+                <img src="img/liderazgo2.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Equipo Directivo</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#galeria" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+                <img src="img/galeria-de-imagenes.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Galería de Imágenes</span>
+              </a>
+            </li>
+          </ul>
+        </li> 
+        <li><a href="index.html#plan-estudios" class="nav-link whitespace-nowrap">Plan de Estudios</a></li>
+        <li><a href="index.html#inscripciones" class="nav-link whitespace-nowrap">Inscripciones</a></li>
+        <li><a href="index.html#contacto" class="nav-link whitespace-nowrap">Contacto</a></li>
+
+        <li>
+          <a href="index.html#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all whitespace-nowrap">
+            <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
+          </a>
+        </li>
+        <li>
+          <a href="Novedades.html" class="flex items-center gap-2 bg-[#78B2B4] hover:bg-[#5a9a9c] text-white p-3 rounded-xl font-bold justify-center transition-all whitespace-nowrap">
+            <i class="fas fa-bell text-lg"></i> Novedades
+          </a>
+        </li>
+      </ul>
+
+      
+      <div class="flex items-center gap-10">
+        <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
+                class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
+                style="background: var(--accent-teal);">
+          <div id="theme-toggle-thumb" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+            <i id="theme-icon-sun" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+            <i id="theme-icon-moon" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+          </div>
+        </button>
+        <button id="menu-btn" class="hamburger md:hidden" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white); z-index: 40;">
+    <ul class="flex flex-col gap-6 p-8 list-none">
+      
+      <li class="flex flex-col gap-3">
+        <a href="index.html#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
+          <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
+        </a>
+        <a href="Novedades.html" class="flex items-center gap-2 bg-[#78B2B4] hover:bg-[#5a9a9c] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
+          <i class="fas fa-bell text-lg"></i> Novedades
+        </a>
+      </li>
+
+      <li>
+        <button id="mobile-inicio-toggle" class="nav-link text-xl flex items-center justify-between w-full" aria-expanded="false">
+          <span class="flex items-center gap-3">
+            <img src="img/lista.webp" alt="" class="w-6 h-6 object-contain"> Menu
+          </span>
+          <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="mobile-inicio-icon"></i>
+        </button>
+        <ul id="mobile-inicio-submenu" class="mt-3 ml-9 flex flex-col gap-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <li><a href="index.html#inicio" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+            <img src="img/home.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Inicio
+          </a></li>
+          <li><a href="index.html#sobre-nosotros" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+            <img src="img/info.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Sobre Nosotros
+          </a></li>
+          <li><a href="Nuestra Identidad.html" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+            <img src="img/historia.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Nuestra Identidad
+          </a></li>
+          <li><a href="index.html#equipo-directivo" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+            <img src="img/liderazgo2.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Equipo Directivo
+          </a></li>
+          <li><a href="index.html#galeria" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+            <img src="img/galeria-de-imagenes.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Galería de Imágenes 
+          </a></li>
+        </ul>
+      </li>
+
+      <li><a href="index.html#plan-estudios" class="nav-link text-xl flex items-center gap-3">
+          <img src="img/book.webp" alt="" class="w-6 h-6 object-contain"> Plan de Estudios
+      </a></li>
+      <li><a href="index.html#inscripciones" class="nav-link text-xl flex items-center gap-3">
+          <img src="img/user-plus.webp" alt="" class="w-6 h-6 object-contain"> Inscripciones
+      </a></li>
+      <li><a href="index.html#contacto" class="nav-link text-xl flex items-center gap-3">
+          <img src="img/mail.webp" alt="" class="w-6 h-6 object-contain"> Contacto
+      </a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main-content">
+  
+  <!-- Banner Informativo (Estilizado como Hero de Nuestra Identidad) -->
+  <section class="hero relative min-h-[45vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="img/fondo-aula.webp" alt="Fondo aula" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-[#2E4A54]/90 backdrop-blur-sm"></div>
+    </div>
+
+    <div class="container relative z-10 px-4 md:px-8 mx-auto text-center">
+      <span class="inline-block px-4 py-1.5 mb-4 text-lg font-medium bg-white/15 rounded-full backdrop-blur text-white">
+        Cartelera en Tiempo Real
+      </span>
+      <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white">Novedades y Comunicados</h1>
+      <p class="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
+        Consultá los últimos archivos, resoluciones y apuntes subidos directamente por el equipo directivo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenedor de la API de Google Drive -->
+  <section class="py-16 bg-[var(--bg-section)]">
+    <div class="container">
+      
+      <!-- Contenedor dinámico donde se inyectan las novedades -->
+      <div id="drive-contenedor" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Estado de carga integrado -->
+        <div class="card col-span-full text-center py-12 animate-pulse flex flex-col justify-between">
+          <div>
+            <i class="fas fa-spinner fa-spin text-4xl text-[var(--accent-teal)] mb-4"></i>
+            <h2 class="text-xl font-bold text-[var(--text-dark)]">Conectando con Google Drive...</h2>
+            <p class="mt-2 text-sm text-[var(--text-light)]">Buscando las últimas actualizaciones oficiales.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Redes Flotantes -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+  <a href="https://wa.me/541128580976" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <img src="img/wsp.webp" alt="WhatsApp" class="w-8 h-8">
+  </a>
+  <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <img src="img/insta.webp" alt="Instagram" class="w-8 h-8">
+  </a>
+</div>
+
+<!-- Footer Unificado de Nuestra Identidad -->
+<footer class="bg-[#1F333B] text-white py-12 border-t border-[rgba(120,178,180,0.1)]">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">CENS N° 475</h3>
+        <p class="text-gray-400 text-sm">
+          Educación pública, gratuita y de calidad <br>para jóvenes y adultos en Isidro Casanova,<br> San Alberto, La Matanza.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+        <ul class="space-y-3 text-sm text-gray-400 list-none pl-0">
+          <li>
+            <a href="index.html#inicio" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/home.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Inicio</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#sobre-nosotros" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/info.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Sobre Nosotros</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#plan-estudios" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/book.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Plan de Estudios</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#inscripciones" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/user-plus.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Inscripciones</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+        <p class="text-gray-400 text-sm mb-2">
+          <i class="fas fa-phone text-[var(--accent-teal)]"></i> 1128580976 / 4694-6804
+        </p>
+        <p class="text-gray-400 text-sm mb-2">
+          <i class="fas fa-map-marker-alt mr-2 text-[var(--accent-teal)]"></i> Anatole France 5755, Isidro Casanova, La Matanza
+        </p>
+        <p class="text-gray-400 text-sm">
+          <i class="fas fa-envelope mr-2 text-[var(--accent-teal)]"></i> cens475lamatanza@gmail.com
+        </p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      <p>© 2026 CENS N° 475 - Todos los derechos reservados | Dirección General de Cultura y Educación | Provincia de Buenos Aires</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS CENTRALES (Manteniendo lógica de Drive original con componentes visuales de Identidad) -->
+
+<script>
+const API_KEY = "AIzaSyDLNMWr7_Ie-CIxpt9Aos0zf-x5TeqPEsw"; 
+const FOLDER_ID = "1RxOg6v--6_Q1vWjVkKicyREal2lrbQek"; 
+
+// Configuración de colores por extensión
+const coloresExtension = {
+  'pdf': 'bg-red-500 text-white',
+  'doc': 'bg-blue-600 text-white',
+  'docx': 'bg-blue-600 text-white',
+  'pptx': 'bg-orange-500 text-white',
+  'xlsx': 'bg-green-600 text-white',
+  'txt': 'bg-gray-500 text-white',
+  'png': 'bg-yellow-400 text-black'
+};
+
+async function cargarNovedadesDrive() {
+  const contenedor = document.getElementById('drive-contenedor');
+  // Se agregó thumbnailLink a la consulta de campos
+  const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+trashed=false&orderBy=createdTime+desc&pageSize=12&fields=files(id,name,webViewLink,fileExtension,createdTime,thumbnailLink)&key=${API_KEY}`;
+
+  try {
+    const respuesta = await fetch(url);
+    if (!respuesta.ok) throw new Error("Error en la respuesta de la API");
+    
+    const datos = await respuesta.json();
+    const archivos = datos.files;
+
+    if (!archivos || archivos.length === 0) {
+      contenedor.innerHTML = `
+        <div class="card col-span-full text-center py-12">
+          <p class="text-lg font-semibold text-[var(--text-dark)]">No hay comunicados recientes en la carpeta.</p>
+        </div>`;
+      return;
+    }
+
+    contenedor.innerHTML = "";
+
+    archivos.forEach((archivo, index) => {
+      const fecha = new Date(archivo.createdTime).toLocaleDateString('es-AR', {
+        day: '2-digit', month: 'short', year: 'numeric'
+      });
+      
+      const extRaw = archivo.fileExtension ? archivo.fileExtension.toLowerCase() : 'doc';
+      const extClase = coloresExtension[extRaw] || 'bg-slate-400 text-white';
+      const delay = (index * 0.1).toFixed(1);
+      const nombreLimpio = archivo.name.split('.').slice(0, -1).join('.') || archivo.name;
+
+      // Lógica para mostrar la miniatura o un placeholder
+      const miniaturaHTML = archivo.thumbnailLink 
+        ? `<div class="mb-4 overflow-hidden rounded-lg">
+             <img src="${archivo.thumbnailLink}" alt="${nombreLimpio}" class="w-full h-40 object-cover transition-transform hover:scale-105">
+           </div>`
+        : `<div class="mb-4 w-full h-40 bg-slate-100 flex items-center justify-center rounded-lg text-slate-400">
+             <i class="fas fa-file-alt text-3xl"></i>
+           </div>`;
+
+      const tarjetaHTML = `
+        <div class="card flex flex-col justify-between" style="transition-delay: ${delay}s;">
+          <div>
+            ${miniaturaHTML}
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge mb-0 font-bold uppercase px-2.5 py-1 rounded-md text-xs ${extClase}">
+                ${extRaw}
+              </span>
+              <span class="text-sm font-medium text-[var(--text-light)]"><i class="far fa-calendar-alt mr-1"></i> ${fecha}</span>
+            </div>
+            <h2 class="text-xl font-bold text-[var(--text-dark)] mb-3 break-words line-clamp-2" title="${nombreLimpio}">
+              ${nombreLimpio}
+            </h2>
+            <p class="text-sm text-[var(--text-light)] mb-4">
+              Nuevo documento oficial subido a la plataforma digital. Hacé clic abajo para visualizar o descargar el archivo.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex justify-between items-center mt-auto">
+            <span class="text-sm font-semibold text-[var(--primary)]">Institucional</span>
+            <a href="${archivo.webViewLink}" target="_blank" rel="noopener" class="text-sm font-bold text-[var(--accent-teal)] hover:text-[var(--accent-light)] flex items-center gap-1.5 transition-colors">
+              Abrir Archivo <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </div>
+        </div>`;
+        
+      contenedor.insertAdjacentHTML('beforeend', tarjetaHTML);
+    });
+
+  } catch (error) {
+    console.error("Error al cargar Drive:", error);
+    contenedor.innerHTML = `
+      <div class="card col-span-full text-center py-12 border-red-200 dark:border-red-900/30">
+        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+        <h2 class="text-xl font-bold text-red-600 dark:text-red-400">No se pudo cargar la cartelera virtual</h2>
+      </div>`;
+  }
+}
+
+// Inicialización de componentes
+window.addEventListener('DOMContentLoaded', cargarNovedadesDrive);
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+}
+
+const mobileInicioToggle = document.getElementById('mobile-inicio-toggle');
+const mobileInicioSubmenu = document.getElementById('mobile-inicio-submenu');
+const mobileInicioIcon = document.getElementById('mobile-inicio-icon');
+if (mobileInicioToggle && mobileInicioSubmenu) {
+  mobileInicioToggle.addEventListener('click', () => {
+    mobileInicioSubmenu.classList.toggle('open');
+    mobileInicioSubmenu.style.maxHeight = mobileInicioSubmenu.classList.contains('open') ? '500px' : '0px';
+    if (mobileInicioIcon) mobileInicioIcon.style.transform = mobileInicioSubmenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+  });
+}
+
+const themeToggle = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+const sunIcon = document.getElementById('theme-icon-sun');
+const moonIcon = document.getElementById('theme-icon-moon');
+
+function applyTheme(isDark) {
+  htmlEl.classList.toggle('dark', isDark);
+  if (sunIcon && moonIcon) {
+    sunIcon.classList.toggle('hidden', isDark);
+    moonIcon.classList.toggle('hidden', !isDark);
+  }
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isDark = !htmlEl.classList.contains('dark');
+    applyTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+}
+applyTheme(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches));
+
+</script>
+</body>
+</html>

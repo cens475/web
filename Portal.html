@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CENS N° 475 | Portal Alumno </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-light: #F8FAFB;
+      --card-bg: #FFFFFF;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --primary: #4A7A8C;
+      --accent-teal: #6BA4A6;
+      --primary-dark: #32535F;
+      --accent-light: #A8D5D7;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    html.dark {
+      --bg-light: #0F172A;
+      --card-bg: #1E293B;
+      --text-dark: #F1F5F9;
+      --text-muted: #94A3B8;
+      --primary: #32535F;
+      --accent-teal: #5A9A9C;
+      --primary-dark: #1F333B;
+      --accent-light: #78B2B4;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: system-ui, -apple-system, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .card-materia {
+      background: var(--card-bg);
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.2s ease;
+    }
+    html.dark.card-materia {
+      border: 1px solid rgba(120, 178, 180, 0.2);
+    }
+    .card-materia:hover {
+      border-color: #6BA4A6;
+      transform: translateY(-1px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #375F66 0%, #467E85 45%, #6CA3A6 100%);
+    }
+    #mobile-menu {
+      transition: all 0.3s ease;
+    }
+    html.dark #theme-toggle-thumb {
+      transform: translateX(30px);
+    }
+    html.dark #theme-toggle-thumb-mobile {
+      transform: translateX(30px);
+    }
+
+    .tab-btn[class*="bg-"] {
+        color: #000000 !important;
+    }
+    .nav-tabs .nav-link, .tabs a, .tab {
+        background-color: transparent !important;
+        border-bottom: 3px solid transparent !important;
+        transition: all 0.2s ease !important;
+    }
+    .nav-tabs .nav-link:hover, .tabs a:hover, .tab:hover {
+        background-color: #f1f5f9 !important;
+    }
+  </style>
+</head>
+<body>
+
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 backdrop-blur-md">
+  <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Bloque Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="img/escudo.webp" alt="Escudo" class="w-12 h-12 object-contain">
+     <div class="flex flex-col">
+             <span class="logo-text-primary text-base sm:text-xl leading-none mb-1 font-bold">CENS N°475</span>
+            <span class="logo-text-secondary text-sm sm:text-lg font-medium text-[var(--text-muted)] leading-tight -mt-0.5 font-bold text-center"> Portal Alumnos</span>
+          </div>
+    </a>
+
+    <!-- FECHA -->
+<div id="fecha-header" class="hidden md:flex items-center gap-2 px-4 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 shadow-inner">
+    <i class="far fa-calendar-alt opacity-60"></i>
+    <span id="fecha-texto"></span>
+</div>
+    <div class="hidden md:flex items-center gap-3">
+    
+    <!-- Botón Inicio -->
+    <a href="index.html#inicio" class="flex items-center gap-2 bg-[#6BA4A6] hover:bg-[#578B8D] text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-colors shadow-xs">
+        <img src="img/home.webp" alt="" class="w-4 h-4 object-contain invert brightness-0 sepia-0"> 
+        <span>Volver a Inicio</span> 
+    </a> 
+
+    <!-- Botón Novedades -->
+    <a href="Novedades.html" class="flex items-center gap-2 bg-[#6BA4A6] hover:bg-[#578B8D] text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-colors shadow-xs">
+        <i class="fas fa-bell"></i> Novedades
+    </a>
+
+    <!-- Botón Cerrar Sesión -->
+    <button onclick="cerrarSesion()" class="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-colors shadow-xs">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </button>
+
+    <!-- Botón de Tema (se mantiene igual) -->
+    <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
+            class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
+            style="background: var(--accent-teal);">
+        <div id="theme-toggle-thumb" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+            <i id="theme-icon-sun" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+            <i id="theme-icon-moon" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+        </div>
+    </button>
+</div>
+
+    <div class="flex items-center gap-10 md:hidden">
+      <button id="theme-toggle-mobile" aria-label="Cambiar modo oscuro" 
+              class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
+              style="background: var(--accent-teal);">
+        <div id="theme-toggle-thumb-mobile" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+          <i id="theme-icon-sun-mobile" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+          <i id="theme-icon-moon-mobile" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+        </div>
+      </button>
+      
+      <button id="menu-btn" class="text-slate-700 dark:text-white text-2xl" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+<div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-4 space-y-3">
+    
+    <!-- Fecha en móvil  -->
+    <div class="flex justify-center pb-2">
+        <div class="flex items-center gap-2 px-4 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300">
+            <i class="far fa-calendar-alt opacity-60"></i>
+            <span id="fecha-texto-mobile"></span>
+        </div>
+    </div>
+
+     <!-- Botón Inicio -->
+    <a href="index.html#inicio" class="flex w-full items-center justify-center gap-2 bg-[#6BA4A6] text-white p-3 rounded-xl font-bold text-sm transition-colors duration-200 hover:bg-[#78B2B4]/80">
+      <img src="img/home.webp" alt="" class="w-4 h-4 object-contain invert brightness-0 sepia-0"> 
+      <span>Volver a Inicio</span> 
+    </a>
+    
+    <!-- Botón Novedades -->
+    <a href="Novedades.html" class="flex w-full items-center justify-center gap-2 bg-[#6BA4A6] text-white p-3 rounded-xl font-bold text-sm">
+      <i class="fas fa-bell"></i> Novedades
+    </a>
+
+    <!-- Botón Cerrar Sesión -->
+    <button onclick="cerrarSesion()" class="flex w-full items-center justify-center gap-2 bg-red-500 text-white p-3 rounded-xl font-bold text-sm">
+      <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </button>
+</div>
+
+</header>
+
+<section class="relative py-14 hero-gradient text-white overflow-hidden text-center">
+  <div class="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center">
+    <span class="inline-block px-4 py-1 mb-4 text-[14px] font-bold bg-white/15 rounded-full text-white/90 uppercase tracking-wider backdrop-blur-xs">
+      Materiales Pedagógicos Digitales
+    </span>
+    <h1 id="titulo-año" class="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight drop-shadow-sm">
+      Materias de 1° Año
+    </h1>
+    <p class="text-white/90 max-w-2xl text-sm md:text-base font-normal leading-relaxed drop-shadow-xs mb-4">
+      Seleccioná y descargá de manera directa los apuntes y trabajos prácticos subidos por tus profesores.
+    </p>
+    
+    <div class="flex items-center gap-2.5 bg-black/10 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-xs text-xl font-semibold text-white/90 mx-auto w-fit">
+      <i class="fas fa-book-open text-[#A8D5D7]"></i>
+      <span><strong id="contador-materias-text">0</strong> Asignaturas Activas</span>
+    </div>
+  </div>
+</section>
+
+<main class="container mx-auto px-6 py-10 max-w-6xl">
+ <section class="mb-8">
+    <h1 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-5 tracking-tight">
+      ¡Bienvenido al portal Alumnos!
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="bg-[#F4F7FF] dark:bg-blue-950/20 rounded-xl p-5 border-l-4 border-blue-500 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex flex-col gap-1.5 flex-1">
+          <h2 class="text-md font-bold text-blue-800 dark:text-blue-300">
+            Información Importante
+          </h2>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            Recuerda revisar las fechas de entrega en el cronograma oficial y mantener tus datos de contacto actualizados.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <a href="Novedades.html" class="inline-flex items-center justify-center gap-2 bg-[#5A9A9C] hover:bg-[#487B7D] border border-transparent px-5 py-2.5 rounded-xl font-bold text-xs text-white transition-all shadow-sm w-full sm:w-auto">
+            <i class="fas fa-bullhorn text-sm text-white"></i>
+            <span>Ver Novedades</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-[#F2FAF8] dark:bg-teal-950/20 rounded-xl p-5 border-l-4 border-[#6BA4A6] shadow-2xs flex flex-col gap-1.5">
+        <h2 class="text-md font-bold text-[#2E5456] dark:text-[#A4D4D6]">
+          ¡Vos podés!
+        </h2>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+          Cada paso que das hoy te acerca a tu meta. ¡Tu esfuerzo en el CENS 475 vale la pena, sigue adelante!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-8 bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800 p-2 sm:p-3 rounded-2xl shadow-sm">
+    <div class="overflow-x-auto scrollbar-none">
+      <div class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap pb-0">
+        <button id="tab-basica" onclick="cambiarSolapa('basica')" class="tab-btn px-3 sm:px-5 py-3 font-bold text-[11px] xs:text-xs sm:text-sm border-2 rounded-xl bg-[#DCE6F1] text-[#1E40AF] border-[#2563EB] transition-all focus:outline-none flex items-center justify-center sm:justify-start gap-1 sm:gap-2 truncate">
+          <i class="fas fa-graduation-cap shrink-0 text-[#1E40AF]"></i><span class="truncate">Formación Básica</span>
+        </button>
+        
+        <button id="tab-naturales" onclick="cambiarSolapa('naturales')" class="tab-btn px-3 sm:px-5 py-3 font-bold text-[11px] xs:text-xs sm:text-sm border-2 rounded-xl border-slate-200/60 dark:border-slate-700/50 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all focus:outline-none flex items-center justify-center sm:justify-start gap-1 sm:gap-2 truncate">
+          <i class="fas fa-leaf shrink-0"></i><span class="truncate">C. Naturales</span>
+        </button>
+        
+        <button id="tab-sociales" onclick="cambiarSolapa('sociales')" class="tab-btn px-3 sm:px-5 py-3 font-bold text-[11px] xs:text-xs sm:text-sm border-2 rounded-xl border-slate-200/60 dark:border-slate-700/50 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all focus:outline-none flex items-center justify-center sm:justify-start gap-1 sm:gap-2 truncate">
+          <i class="fas fa-users shrink-0"></i><span class="truncate">C. Sociales</span>
+        </button>
+        
+        <button id="tab-economia" onclick="cambiarSolapa('economia')" class="tab-btn px-3 sm:px-5 py-3 font-bold text-[11px] xs:text-xs sm:text-sm border-2 rounded-xl border-slate-200/60 dark:border-slate-700/50 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all focus:outline-none flex items-center justify-center sm:justify-start gap-1 sm:gap-2 truncate">
+          <i class="fas fa-chart-line shrink-0"></i><span class="truncate">Economía y Adm.</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contenedor-general-materias">
+    <div id="contenedor-basica" class="tab-content block transition-all duration-300"></div>
+    <div id="contenedor-naturales" class="tab-content hidden transition-all duration-300"></div>
+    <div id="contenedor-sociales" class="tab-content hidden transition-all duration-300"></div>
+    <div id="contenedor-economia" class="tab-content hidden transition-all duration-300"></div>
+  </section>
+
+  <div class="mt-12 text-center">
+      <button onclick="cerrarSesion()" class="px-6 py-3 bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 font-bold rounded-xl flex items-center justify-center gap-2 mx-auto transition-all border border-slate-200 hover:border-red-200 shadow-sm">
+          <i class="fas fa-sign-out-alt"></i> 
+          <span>Cerrar Sesión</span>
+      </button>
+  </div>
+</main>
+
+<footer class="bg-[#1F333B] text-white py-8 border-t border-[rgba(120,178,180,0.1)]">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold">CENS N° 475</h3>
+        <p class="text-gray-400 text-sm leading-snug">
+          Educación pública, gratuita y de calidad <br>para jóvenes y adultos en Isidro Casanova,<br> San Alberto, La Matanza.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+        <p class="text-gray-400 text-sm mb-2">
+          <i class="fas fa-phone text-[var(--accent-teal)]"></i> 1128580976 / 4694-6804
+        </p>
+        <p class="text-gray-400 text-sm mb-2">
+          <i class="fas fa-map-marker-alt mr-2 text-[var(--accent-teal)]"></i> Anatole France 5755, Isidro Casanova, La Matanza
+        </p>
+        <p class="text-gray-400 text-sm">
+          <i class="fas fa-envelope mr-2 text-[var(--accent-teal)]"></i> cens475lamatanza@gmail.com
+        </p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+      <p>© 2026 CENS N° 475 - Todos los derechos reservados | Dirección General de Cultura y Educación | Provincia de Buenos Aires</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+if (!localStorage.getItem('auth_year')) {
+    window.location.href = 'index.html';
+}
+
+function cerrarSesion() {
+    if (confirm("¿Seguro que quieres cerrar sesión? Estaremos aquí cuando decidas volver. ¡Hasta pronto y que tengas un día excelente!")) {
+        localStorage.removeItem('auth_year');
+        window.location.href = 'index.html';
+    }
+}
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+/* DARK MODE UNIFICADO */
+const htmlEl = document.documentElement;
+
+function applyTheme(isDark) {
+  htmlEl.classList.toggle('dark', isDark);
+  
+  // Sincronizar Elementos de Escritorio y Móvil de una sola vez
+  ['', '-mobile'].forEach(suffix => {
+    const sunIcon = document.getElementById(`theme-icon-sun${suffix}`);
+    const moonIcon = document.getElementById(`theme-icon-moon${suffix}`);
+    const thumb = document.getElementById(`theme-toggle-thumb${suffix}`);
+    
+    if (sunIcon) sunIcon.classList.toggle('hidden', isDark);
+    if (moonIcon) moonIcon.classList.toggle('hidden', !isDark);
+    if (thumb) thumb.style.transform = isDark ? 'translateX(30px)' : 'translateX(0)';
+  });
+  
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+['theme-toggle', 'theme-toggle-mobile'].forEach(id => {
+  const btn = document.getElementById(id);
+  if (btn) {
+      btn.addEventListener('click', () => {
+        const isDark = !htmlEl.classList.contains('dark');
+        applyTheme(isDark);
+      });
+  }
+});
+
+const saved = localStorage.getItem('theme');
+const isDarkInitial = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+applyTheme(isDarkInitial);
+
+const CONFIG_DRIVE_POR_ANIO = {
+    "1": { folderId: "1-GSdFV277ZdUHn1gOGukFxaHqoPV_Jjv", apiKey: "AIzaSyDLNMWr7_Ie-CIxpt9Aos0zf-x5TeqPEsw" },
+    "2": { folderId: "1lKKZGMp7j4JzgK_N8hGcaYslthNh2Gpv", apiKey: "AIzaSyDLNMWr7_Ie-CIxpt9Aos0zf-x5TeqPEsw" },
+    "3": { folderId: "1zkCPa9MBsxtDygegDzUBwCsHKh_mSSIr", apiKey: "AIzaSyDLNMWr7_Ie-CIxpt9Aos0zf-x5TeqPEsw" }
+};
+
+const materias = {
+    "1": {
+        basicas: [
+            { nombre: "Ciencias Sociales" }, { nombre: "Prácticas del Lenguaje" }, { nombre: "Matemática" },
+            { nombre: "Biología y Ambiente Salud" }, { nombre: "Lengua Adicional" },
+            { nombre: "Tecnología y Prácticas Digitales" }, { nombre: "Educación Física" }, { nombre: "Educación Artística" }
+        ],
+        orientaciones: {
+            naturales: [{ nombre: "Desarrollo Sustentable" }, { nombre: "Salud y Cultura" }],
+            sociales: [{ nombre: "Sociología" }, { nombre: "Psicología del Desarrollo Psicología Social e Institucional" }],
+            economia: [{ nombre: "Sistemas Contables" }, { nombre: "Gestión del Diseño de Emprendimientos Admin. Pública" }]
+        }
+    },
+    "2": {
+        basicas: [
+            { nombre: "Ciencias Sociales" }, { nombre: "Prácticas del Lenguaje" }, { nombre: "Matemática" },
+            { nombre: "Física y Fenómenos Naturales" }, { nombre: "Lengua Adicional" }, { nombre: "Ciudadanía, Sociedad y Cultura" },
+            { nombre: "Tecnología y Prácticas Digitales" }, { nombre: "Educación Física" }, { nombre: "Educación Artística" }
+        ],
+        orientaciones: {
+            naturales: [{ nombre: "Derecho Ambiental" }, { nombre: "Salud y Género" }, { nombre: "Metodología de la Investigación" }],
+            sociales: [{ nombre: "Derechos Humanos" }, { nombre: "Metodología de la Investigación" }],
+            economia: [{ nombre: "Derecho Económico" }, { nombre: "Administración de Capacidades" }]
+        }
+    },
+    "3": {
+        basicas: [
+            { nombre: "Problemática Social Argentina" }, { nombre: "Prácticas del Lenguaje" }, { nombre: "Matemática" },
+            { nombre: "Química y Tecnologías" }, { nombre: "Lengua Adicional" }, { nombre: "Tecnología y Prácticas Digitales" },
+            { nombre: "Educación Física" }, { nombre: "Educación Artística" }
+        ],
+        orientaciones: {
+            naturales: [{ nombre: "Nutrición y Vida Saludable" }, { nombre: "Políticas Públicas" }],
+            sociales: [{ nombre: "Filosofía" }, { nombre: "Comunicación y Cultura" }],
+            economia: [{ nombre: "Economía" }, { nombre: "Legislación e Impuestos" }]
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Inicialización de Año ---
+    const year = localStorage.getItem('auth_year') || "1";
+    const tituloAnio = document.getElementById('titulo-año');
+    if (tituloAnio) {
+        tituloAnio.innerText = `Materias de ${year}° Año`;
+    }
+
+    // --- Consultas a la API de Google Drive ---
+    async function cargarArchivosMateria(nombreMateria, contenedorId, config) {
+        const divContenedor = document.getElementById(contenedorId);
+        if (!divContenedor) return;
+
+        if (!config || config.apiKey === "TU_API_KEY") {
+            divContenedor.innerHTML = `<p class="text-[11px] text-slate-400 italic py-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Falta vincular credenciales en el servidor.</p>`;
+            return;
+        }
+
+        try {
+            const queryCarpeta = `'${config.folderId}' in parents and name = '${nombreMateria}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+            const urlCarpeta = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(queryCarpeta)}&key=${config.apiKey}`;
+            const resCarpeta = await fetch(urlCarpeta);
+            const dataCarpeta = await resCarpeta.json();
+
+            if (dataCarpeta.files && dataCarpeta.files.length > 0) {
+                const subFolderId = dataCarpeta.files[0].id;
+                const queryArchivos = `'${subFolderId}' in parents and trashed = false and mimeType != 'application/vnd.google-apps.folder'`;
+                
+                const urlArchivos = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(queryArchivos)}&pageSize=20&fields=files(id,name,webViewLink)&key=${config.apiKey}`;
+                const resArchivos = await fetch(urlArchivos);
+                const dataArchivos = await resArchivos.json();
+
+                if (dataArchivos.files && dataArchivos.files.length > 0) {
+                    let gridHtml = `<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-2 w-full">`;
+                    dataArchivos.files.forEach(file => {
+                        const nombreMinuscula = file.name.toLowerCase();
+                        let clasesTarjeta = "";
+                        let claseIcono = "";
+
+                        if (nombreMinuscula.includes('.png') || nombreMinuscula.includes('.jpg') || nombreMinuscula.includes('.jpeg')) {
+                            clasesTarjeta = "bg-[#fff9c4] dark:bg-[#4a3f1a] hover:bg-[#fff59d] dark:hover:bg-[#5c4d1f] border-l-4 border-l-[#fbc02d] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-image text-[#f9a825]";
+                        } else if (nombreMinuscula.includes('.xls') || nombreMinuscula.includes('.xlsx')) {
+                            clasesTarjeta = "bg-[#e8f5e9] dark:bg-[#1b4322] hover:bg-[#c8e6c9] dark:hover:bg-[#22552b] border-l-4 border-l-[#2e7d32] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-excel text-[#2e7d32]";
+                        } else if (nombreMinuscula.includes('.doc') || nombreMinuscula.includes('.docx')) {
+                            clasesTarjeta = "bg-[#e3f2fd] dark:bg-[#1a365d] hover:bg-[#bbdefb] dark:hover:bg-[#22457a] border-l-4 border-l-[#1565c0] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-word text-[#1565c0]";
+                        } else if (nombreMinuscula.includes('.txt')) {
+                            clasesTarjeta = "bg-[#f5f5f5] dark:bg-[#334155] hover:bg-[#e0e0e0] dark:hover:bg-[#475569] border-l-4 border-l-[#757575] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-lines text-[#616161]";
+                        } else if (nombreMinuscula.includes('.pdf')) {
+                            clasesTarjeta = "bg-[#ffebee] dark:bg-[#5c1d1d] hover:bg-[#ffcdd2] dark:hover:bg-[#732424] border-l-4 border-l-[#c62828] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-pdf text-[#c62828]";
+                        } else if (nombreMinuscula.includes('.ppt') || nombreMinuscula.includes('.pptx')) {
+                            clasesTarjeta = "bg-[#fff3e0] dark:bg-[#432818] hover:bg-[#ffe0b2] dark:hover:bg-[#533422] border-l-4 border-l-[#f57c00] border-y-slate-200/60 border-r-slate-200/60 dark:border-y-slate-700/50 dark:border-r-slate-700/50";
+                            claseIcono = "fa-file-powerpoint text-[#f57c00]";
+                        } else {
+                            clasesTarjeta = "bg-slate-50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800 border-slate-200/60 dark:border-slate-700/50";
+                            claseIcono = "fa-file text-slate-400";
+                        }
+
+                        gridHtml += `
+                            <a href="${file.webViewLink}" target="_blank" class="flex items-center gap-2 px-3 py-3 rounded-lg border transition-all group w-full min-w-0 ${clasesTarjeta}">
+                                <i class="fa-solid ${claseIcono} text-sm shrink-0"></i>
+                                <span class="truncate text-[11px] font-medium text-slate-700 dark:text-slate-300" title="${file.name}">${file.name}</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0"></i>
+                            </a>`;
+                    });
+                    gridHtml += `</div>`;
+                    divContenedor.innerHTML = gridHtml;
+                } else {
+                    divContenedor.innerHTML = `<p class="text-[11px] text-slate-400 italic mt-1"><i class="fa-solid fa-folder-open mr-1"></i> No se encontraron archivos subidos.</p>`;
+                }
+            } else {
+                divContenedor.innerHTML = `<p class="text-[11px] text-slate-400 italic mt-1"><i class="fa-solid fa-folder-minus mr-1"></i> Aún no se creó la carpeta "${nombreMateria}".</p>`;
+            }
+        } catch (e) {
+            divContenedor.innerHTML = `<p class="text-[11px] text-red-400 italic mt-1">Error al conectar con Drive API.</p>`;
+        }
+    }
+
+    // --- Componentes HTML Estáticos ---
+    function crearCard(materia, index, tipo) {
+        const uId = `files-${tipo}-${index}`;
+        return `
+            <div class="card-materia p-4 rounded-xl shadow-2xs flex flex-col gap-1 bg-white dark:bg-slate-900 mb-3">
+                <div class="flex items-center justify-between pb-1.5 border-b border-slate-100 dark:border-slate-800 w-full">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#4A6E7B] shrink-0"></div>
+                        <h3 class="text-sm font-bold text-slate-700 dark:text-slate-200 truncate" title="${materia.nombre}">${materia.nombre}</h3>
+                    </div>
+                    <span class="text-[9px] uppercase font-bold tracking-wider text-[#6BA4A6] bg-[#6BA4A6]/10 px-2 py-0.5 rounded-md shrink-0 ml-2">Drive</span>
+                </div>
+                <div id="${uId}" class="w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 animate-pulse">
+                        <div class="h-6 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    // --- Control de Pestañas/Solapas ---
+    window.cambiarSolapa = function(solapaSeleccionada) {
+        const estilosSolapas = {
+            'basica': { activo: ['bg-[#DCE6F1]', 'text-[#1E40AF]', 'border-[#2563EB]'], iconColor: 'text-[#1E40AF]' },
+            'naturales': { activo: ['bg-[#E8F5E9]', 'text-[#15803D]', 'border-[#16A34A]'], iconColor: 'text-[#15803D]' },
+            'sociales': { activo: ['bg-[#FEF9C3]', 'text-[#A16207]', 'border-[#EAB308]'], iconColor: 'text-[#A16207]' },
+            'economia': { activo: ['bg-[#FCE7F3]', 'text-[#BE185D]', 'border-[#DB2777]'], iconColor: 'text-[#BE185D]' }
+        };
+
+        const botones = document.querySelectorAll('.tab-btn');
+        botones.forEach(btn => {
+            const idSolapa = btn.id.replace('tab-', ''); 
+            const icono = btn.querySelector('i');
+
+            // Limpieza segura de clases de color específicas
+            if (icono) {
+                icono.classList.remove('text-[#1E40AF]', 'text-[#15803D]', 'text-[#A16207]', 'text-[#BE185D]');
+            }
+
+            if (idSolapa === solapaSeleccionada) {
+                btn.classList.remove('border-transparent', 'text-slate-400', 'dark:text-white', 'text-[#4A7A8C]');
+                btn.classList.add(...estilosSolapas[idSolapa].activo);
+                if (icono) {
+                    icono.classList.add(estilosSolapas[idSolapa].iconColor);
+                }
+            } else {
+                Object.values(estilosSolapas).forEach(estilo => {
+                    btn.classList.remove(...estilo.activo);
+                });
+                btn.classList.add('border-transparent', 'text-slate-400');
+            }
+        });
+
+        const contenedores = document.querySelectorAll('.tab-content');
+        contenedores.forEach(cont => {
+            if (cont.id === `contenedor-${solapaSeleccionada}`) {
+                cont.classList.remove('hidden');
+                cont.classList.add('block');
+            } else {
+                cont.classList.remove('block');
+                cont.classList.add('hidden');
+            }
+        });
+    }
+
+    // --- Renderizado y Flujo Principal ---
+    const containerBasica = document.getElementById('contenedor-basica');
+    
+    if (typeof materias !== 'undefined' && typeof CONFIG_DRIVE_POR_ANIO !== 'undefined') {
+        const infoAnio = materias[year];
+        const configActual = CONFIG_DRIVE_POR_ANIO[year];
+
+        if (infoAnio) {
+            let totalMateriasCount = 0;
+
+            // Renderizar materias básicas
+            if (containerBasica) {
+                let htmlB = `<div class="mb-2"><h2 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2"><span class="w-1.5 h-3 bg-[#4A6E7B] rounded-xs"></span>Materias Obligatorias</h2><div class="flex flex-col gap-1">`;
+                infoAnio.basicas.forEach((m, i) => {
+                    htmlB += crearCard(m, i, 'basica');
+                    totalMateriasCount++;
+                });
+                htmlB += `</div></div>`;
+                containerBasica.innerHTML = htmlB;
+                
+                infoAnio.basicas.forEach((m, i) => {
+                    setTimeout(() => {
+                        cargarArchivosMateria(m.nombre, `files-basica-${i}`, configActual);
+                    }, i * 300);
+                });
+            }
+
+            // Configuración de categorías / orientaciones
+            const categorias = [
+                { key: 'naturales', nombre: 'Ciencias Naturales', icon: 'fa-leaf', color: '#4A6E7B' },
+                { key: 'sociales', nombre: 'Ciencias Sociales', icon: 'fa-users', color: '#6BA4A6' },
+                { key: 'economia', nombre: 'Economía y Administración', icon: 'fa-chart-line', color: '#32535F' }
+            ];
+
+            let delayOrientaciones = infoAnio.basicas.length * 300;
+
+            categorias.forEach(cat => {
+                const contenedorOrientacion = document.getElementById(`contenedor-${cat.key}`);
+                if (!contenedorOrientacion) return;
+                
+                if (infoAnio.orientaciones && infoAnio.orientaciones[cat.key]) {
+                    let htmlO = `
+                        <div class="mb-4">
+                            <h2 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <span class="w-1.5 h-3 rounded-xs" style="background-color: ${cat.color};"></span> Rama Orientada: ${cat.nombre}
+                            </h2>
+                            <div class="flex flex-col gap-1">`;
+                    
+                    infoAnio.orientaciones[cat.key].forEach((m, i) => {
+                        htmlO += crearCard(m, i, `ori-${cat.key}`);
+                        totalMateriasCount++;
+                    });
+                    htmlO += `</div></div>`;
+                    contenedorOrientacion.innerHTML = htmlO;
+
+                    infoAnio.orientaciones[cat.key].forEach((m, i) => {
+                        setTimeout(() => {
+                            cargarArchivosMateria(m.nombre, `files-ori-${cat.key}-${i}`, configActual);
+                        }, delayOrientaciones);
+                        delayOrientaciones += 300;
+                    });
+                } else {
+                    contenedorOrientacion.innerHTML = `<p class="text-xs text-slate-400 italic py-4">No hay materias asignadas a esta orientación para ${year}° Año.</p>`;
+                }
+            });
+
+            // Actualizar contador global
+            const contadorText = document.getElementById('contador-materias-text');
+            if (contadorText) {
+                contadorText.innerText = totalMateriasCount;
+            }
+        }
+    }
+});
+
+    function actualizarFecha() {
+        const opciones = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const fechaFormateada = new Date().toLocaleDateString('es-ES', opciones);
+        
+        // Actualizar en el Header Desktop
+        const elDesktop = document.getElementById('fecha-texto');
+        if (elDesktop) elDesktop.textContent = fechaFormateada;
+        
+        // Actualizar en el Menu Mobile
+        const elMobile = document.getElementById('fecha-texto-mobile');
+        if (elMobile) elMobile.textContent = fechaFormateada;
+    }
+    
+    // Ejecutar al cargar
+    actualizarFecha();
+</script>
+</body>
+</html>
