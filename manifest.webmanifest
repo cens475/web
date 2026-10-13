@@ -1,0 +1,150 @@
+{
+  "name": "CENS N° 475 - Secundario de Adultos",
+  "short_name": "CENS 475",
+  "description": "Terminá tu secundario en CENS N° 475 Islas Malvinas - Isidro Casanova. Educación pública, gratuita y de calidad para jóvenes y adultos.",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "browser"
+  ],
+  "orientation": "portrait-primary",
+  "theme_color": "#32535F",
+  "background_color": "#32535F",
+  "lang": "es-AR",
+  "dir": "ltr",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "/pwa_icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa_icons/icon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa_icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Inscripción",
+      "short_name": "Inscripción",
+      "description": "Inscribite al CENS 475 - Secundario para adultos",
+      "url": "/#inscripcion",
+      "icons": [
+        {
+          "src": "/pwa_icons/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Contactanos por WhatsApp o mail",
+      "url": "/#contacto",
+      "icons": [
+        {
+          "src": "/pwa_icons/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Oferta Educativa",
+      "short_name": "Carreras",
+      "description": "Ver orientaciones",
+      "url": "/#oferta",
+      "icons": [
+        {
+          "src": "/pwa_icons/icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/pwa_icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "CENS 475 en tu celular"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "focus-existing",
+      "auto"
+    ]
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
