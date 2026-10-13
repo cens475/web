@@ -935,10 +935,10 @@ input[type="text"] {
 
       <div class="card fade-in text-center">
         <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-accent-teal">
-          <img src="img/Lucas.webp" alt="Nombre del Directivo" class="w-full h-full object-cover">
+          <img src="img/Valeria.webp" alt="Nombre del Directivo" class="w-full h-full object-cover">
         </div>
-        <h3 class="text-xl font-bold mb-1">Lucas Arias</h3>
-        <p class="text-accent-teal font-semibold mb-3">Secretario</p>
+        <h3 class="text-xl font-bold mb-1">Nombre</h3>
+        <p class="text-accent-teal font-semibold mb-3">Secretaria</p>
         <p class="text-sm" style="color: var(--text-light);">
           Nuestra misión es convertir los desafíos en escalones y la educación en la herramienta más poderosa de transformación para nuestra comunidad.
         </p>
@@ -957,7 +957,7 @@ input[type="text"] {
 
       <div class="card fade-in text-center">
         <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-accent-teal">
-          <img src="img/Aylen.webp" alt="Nombre del Directivo" class="w-full h-full object-cover">
+          <img src="img/Valeria.webp" alt="Nombre del Directivo" class="w-full h-full object-cover">
         </div>
         <h3 class="text-xl font-bold mb-1">Aylén Ruiz</h3>
         <p class="text-accent-teal font-semibold mb-3">Preceptora</p>
@@ -1312,7 +1312,73 @@ input[type="text"] {
   </a>
 </div>
 
+
+
+
+
+<!-- BOTONES FIJOS CONVOCATORIA - DOCENTE Y ALUMNO -->
+<div class="fixed bottom-6 left-6 z-[60] flex flex-col gap-3">
+  <button id="btnFijoAlumno" class="inline-flex items-center gap-2 bg-[#78B2B4] hover:bg-[#5A9A9C] text-[#1F333B] dark:text-white font-bold text-sm md:text-[15px] py-3 px-5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+    <i class="fas fa-graduation-cap"></i>
+    <span>¡Terminá tu secundario!</span>
+  </button>
+  <button id="btnFijoDocente" class="inline-flex items-center gap-2 bg-[#1F333B] hover:bg-[#32535F] text-white font-bold text-sm md:text-[15px] py-3 px-5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-white/10">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <span>¡Sumate como docente!</span>
+  </button>
+</div>
+
+<!-- MODAL DOCENTE -->
+<div id="modalDocente" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div id="modalDocenteOverlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <div class="relative bg-white dark:bg-[#1E293B] rounded-[20px] max-w-[520px] w-full shadow-2xl overflow-hidden border-t-[6px] border-t-[#1F333B]">
+    <button id="closeModalDocente" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/10 dark:hover:bg-white/10 text-gray-500 dark:text-gray-300">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="p-8 md:p-10 text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#1F333B]/10 dark:bg-white/10 text-[#1F333B] dark:text-white text-xs font-bold tracking-widest mb-5">CONVOCATORIA DOCENTE PERMANENTE (Decreto 900)</span>
+      <h2 class="text-[2rem] md:text-[2.4rem] font-extrabold leading-[1.1] text-[#1E293B] dark:text-white mb-4">¿Querés dictar clases en el CENS 475?</h2>
+      <p class="text-[15px] leading-relaxed text-[#64748B] dark:text-[#94A3B8] mb-7">Sumate al equipo. Completá el formulario con tus datos.</p>
+      <a id="btnGoogleFormDocente" href="https://docs.google.com/forms/d/e/1FAIpQLSfoh66ufOAI0HiwhLpWZDw-8ChacTKBkTH9exyRJYKgdkACMw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer"
+         class="w-full inline-flex items-center justify-center gap-3 bg-[#1F333B] hover:bg-[#32535F] text-white font-bold text-[17px] py-4 px-6 rounded-full shadow-lg hover:scale-[1.02] transition-all">
+        <i class="fas fa-chalkboard-teacher"></i> Quiero ser parte del equipo docente <i class="fas fa-external-link-alt text-xs opacity-70"></i>
+      </a>
+      <p class="mt-3 text-[11px] text-[#64748B] dark:text-[#94A3B8]"><i class="fas fa-lock mr-1"></i> Te lleva a un Google Form seguro - Docentes</p>
+      <button id="btnCerrarDocenteTexto" class="mt-5 w-full md:w-[70%] mx-auto py-2.5 px-6 rounded-full border border-black/20 dark:border-white/20 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Más tarde</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ALUMNO -->
+<div id="modalAlumno" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div id="modalAlumnoOverlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <div class="relative bg-white dark:bg-[#1E293B] rounded-[20px] max-w-[520px] w-full shadow-2xl overflow-hidden border-t-[6px] border-t-[#78B2B4]">
+    <button id="closeModalAlumno" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/10 dark:hover:bg-white/10 text-gray-500 dark:text-gray-300">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="p-8 md:p-10 text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-[#78B2B4]/30 dark:bg-[#78B2B4]/20 text-[#32535F] dark:text-[#A8D5D7] text-xs font-bold tracking-widest mb-5">INSCRIPCIONES ABIERTAS TODO EL AÑO</span>
+      <h2 class="text-[2rem] md:text-[2.4rem] font-extrabold leading-[1.1] text-[#1E293B] dark:text-white mb-4">Terminá tu secundario en el CENS N° 475</h2>
+      <p class="text-[15px] leading-relaxed text-[#64748B] dark:text-[#94A3B8] mb-7">Educación pública, gratuita y de calidad en Isidro Casanova. Plan de 3 años con orientación en Naturales, Sociales y Gestión.</p>
+      <a id="btnGoogleFormAlumno" href="https://docs.google.com/forms/d/e/1FAIpQLScstkG_F0UyM7YqhwF1JFgMKvL16kFAYVPC3OSfyXfeP0v4qw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer"
+         class="w-full inline-flex items-center justify-center gap-3 bg-[#32535F] hover:bg-[#1F333B] text-white font-bold text-[17px] py-4 px-6 rounded-full shadow-lg hover:scale-[1.02] transition-all">
+        <i class="fas fa-graduation-cap"></i> Quiero inscribirme <i class="fas fa-external-link-alt text-xs opacity-70"></i>
+      </a>
+      <p class="mt-3 text-[11px] text-[#64748B] dark:text-[#94A3B8]"><i class="fas fa-lock mr-1"></i> Te lleva a un Google Form seguro - Inscripción alumnos</p>
+      <button id="btnCerrarAlumnoTexto" class="mt-5 w-full md:w-[70%] mx-auto py-2.5 px-6 rounded-full border border-black/20 dark:border-white/20 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Más tarde</button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+#modalDocente.flex, #modalAlumno.flex { display: flex !important; }
+#modalDocente > div.relative, #modalAlumno > div.relative { animation: modalIn 0.35s cubic-bezier(0.16,1,0.3,1); }
+</style>
+
 <!-- PIE DE PAGINA -->
+
+
 <footer class="py-12 bg-[#1F333B] text-white">
   <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
     <div class="fade-in">
@@ -1718,5 +1784,115 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 </script>
+
+<script>
+// MODAL DOCENTE - CENS 475
+(function(){
+  const modal = document.getElementById('modalDocente');
+  const overlay = document.getElementById('modalDocenteOverlay');
+  const btnCloseX = document.getElementById('closeModalDocente');
+  const btnCloseTexto = document.getElementById('btnCerrarModalTexto');
+  if(!modal) return;
+
+  function abrirModal(){
+    // No mostrar si ya cerró en esta sesión (opcional)
+    // if(sessionStorage.getItem('modalDocenteVisto')) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarModal(){
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('modalDocenteVisto','1');
+  }
+
+  // Abrir automáticamente después de 1.5s
+  window.addEventListener('load', () => {
+    setTimeout(abrirModal, 1500);
+  });
+
+  // Cerrar eventos
+  if(overlay) overlay.addEventListener('click', cerrarModal);
+  if(btnCloseX) btnCloseX.addEventListener('click', cerrarModal);
+  if(btnCloseTexto) btnCloseTexto.addEventListener('click', cerrarModal);
+  
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && !modal.classList.contains('hidden')) cerrarModal();
+  });
+
+  // Tracking opcional: al hacer clic en el botón del Google Form
+  const btnForm = document.getElementById('btnGoogleFormDocente');
+  if(btnForm){
+    btnForm.addEventListener('click', ()=>{
+      // Acá podés agregar gtag o analytics
+      console.log('Click convocatoria docente -> Google Form');
+      cerrarModal();
+    });
+  }
+})();
+</script>
+
+<script>
+// MODALES DUALES CENS 475 - DOCENTE Y ALUMNO
+(function(){
+  const modalDocente = document.getElementById('modalDocente');
+  const modalAlumno = document.getElementById('modalAlumno');
+  const btnFijoDocente = document.getElementById('btnFijoDocente');
+  const btnFijoAlumno = document.getElementById('btnFijoAlumno');
+
+  function abrir(modal){
+    if(!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrar(modal){
+    if(!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  window.abrirModalDocente = () => abrir(modalDocente);
+  window.abrirModalAlumno = () => abrir(modalAlumno);
+
+  // Auto abrir uno solo la primera vez - prioriza alumnos si quieres
+  window.addEventListener('load', () => {
+    if(sessionStorage.getItem('modalCensVisto')) return;
+    // Mostrar primero alumnos a los 1.5s
+    setTimeout(()=>{ abrir(modalAlumno); sessionStorage.setItem('modalCensVisto','1'); }, 1500);
+  });
+
+  // Botones fijos
+  if(btnFijoDocente) btnFijoDocente.addEventListener('click', ()=> abrir(modalDocente));
+  if(btnFijoAlumno) btnFijoAlumno.addEventListener('click', ()=> abrir(modalAlumno));
+
+  // Cerrar docente
+  document.getElementById('modalDocenteOverlay')?.addEventListener('click', ()=> cerrar(modalDocente));
+  document.getElementById('closeModalDocente')?.addEventListener('click', ()=> cerrar(modalDocente));
+  document.getElementById('btnCerrarDocenteTexto')?.addEventListener('click', ()=> cerrar(modalDocente));
+
+  // Cerrar alumno
+  document.getElementById('modalAlumnoOverlay')?.addEventListener('click', ()=> cerrar(modalAlumno));
+  document.getElementById('closeModalAlumno')?.addEventListener('click', ()=> cerrar(modalAlumno));
+  document.getElementById('btnCerrarAlumnoTexto')?.addEventListener('click', ()=> cerrar(modalAlumno));
+
+  // ESC cierra ambos
+  document.addEventListener('keydown', (e)=>{
+    if(e.key==='Escape'){
+      cerrar(modalDocente);
+      cerrar(modalAlumno);
+    }
+  });
+
+  // Tracking
+  document.getElementById('btnGoogleFormDocente')?.addEventListener('click', ()=> setTimeout(()=>cerrar(modalDocente),300));
+  document.getElementById('btnGoogleFormAlumno')?.addEventListener('click', ()=> setTimeout(()=>cerrar(modalAlumno),300));
+})();
+</script>
 </body>
+
+
 </html>
