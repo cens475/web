@@ -1,41 +1,17 @@
-// CENS 475 - Service Worker para PWA
-const CACHE_NAME = 'cens475-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/pwa_icons/icon-192x192.png',
-  '/pwa_icons/icon-512x512.png'
-];
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+// CENS 475 OFICIAL - cens475.github.io/web/ - v9 fondo blanco
+const CACHE_NAME='cens475-web-v9';
+const BASE='/web/';
+self.addEventListener('install', e=>{self.skipWaiting()});
+self.addEventListener('activate', e=>{
+  e.waitUntil(
+    caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>self.clients.claim())
   );
-  self.skipWaiting();
 });
-
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-    ))
-  );
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      const fetchPromise = fetch(event.request).then(resp => {
-        if (resp && resp.status === 200 && resp.type === 'basic') {
-          const clone = resp.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        }
-        return resp;
-      }).catch(()=> cached);
-      return cached || fetchPromise;
-    })
-  );
+self.addEventListener('fetch', e=>{
+  const url = new URL(e.request.url);
+  if(url.pathname.includes('pwa_icons') || url.pathname.includes('manifest')){
+    e.respondWith(fetch(e.request,{cache:'no-store'}));
+    return;
+  }
+  e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));
 });
